@@ -12,7 +12,7 @@ const BrandLogo = () => {
 
 
             <div className="grid lg:grid-cols-3 gap-4 max-w-screen-lg mx-auto">
-                <Link>
+                <Link to={'/toyotaCarts'}>
                     <div style={{
                         backgroundImage: `url(https://i.ibb.co/7yxS7W6/pexels-sebastian-pichard-13911165.jpg), linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85))`,
                         backgroundRepeat: "no-repeat",

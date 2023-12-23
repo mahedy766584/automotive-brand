@@ -6,6 +6,7 @@ import AddProduct from "../Pages/AddProduct/AddProduct";
 import MyCart from "../Pages/MyCart/MyCart";
 import SignUp from "../Authentication/SignUp/SignUp";
 import SignIn from "../Authentication/SignIn/SignIn";
+import ToyotaCarts from "../Components/BrandsCarts/ToyotaCarts/ToyotaCarts";
 
 const myCreatedRouter = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const myCreatedRouter = createBrowserRouter([
             {
                 path: "/sigIn",
                 element: <SignIn/>
+            },
+            {
+                path: "/toyotaCarts",
+                element: <ToyotaCarts/>
             }
         ]
     }
