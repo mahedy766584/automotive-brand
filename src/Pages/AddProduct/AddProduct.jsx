@@ -1,7 +1,47 @@
+import { useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
+import { toast} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddProduct = () => {
 
+    const [photo, photoChange] = useState("")
+    const [name, nameChange] = useState("")
+    const [brandName, brandNameChange] = useState("")
+    const [price, priceChange] = useState("")
+    const [type, typeChange] = useState("")
+    const [rating, ratingChange] = useState("")
+    const [description, descriptionChange] = useState("")
+
+    const handleAddProduct = e => {
+        e.preventDefault();
+        const productDetails = { photo, name, brandName, price, type, rating, description }
+        console.log(productDetails)
+
+        fetch('http://localhost:5001/toyota', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(productDetails)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged > 0) {
+                    toast.success('Your product successfully added!', {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                }
+            })
+    }
 
     return (
         <div>
@@ -17,13 +57,14 @@ const AddProduct = () => {
                             Add Your Product
                         </h3>
                     </div>
-                    <form>
+                    <form onSubmit={handleAddProduct}>
                         <div>
                             <div className="flex flex-col gap-4 p-6">
                                 <div className="flex w-full items-center gap-4">
                                     <div className="space-y-4 w-full">
                                         <div className="relative h-11 w-full">
                                             <input
+                                                value={photo} onChange={e => photoChange(e.target.value)}
                                                 className="w-full h-full px-3 py-3 font-sans text-sm font-normal transition-all bg-transparent border rounded-md peer border-blue-gray-200 border-t-transparent text-blue-gray-700 outline outline-0 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                                                 name="image"
                                                 required
@@ -35,6 +76,7 @@ const AddProduct = () => {
                                         </div>
                                         <div className="relative h-11 w-full ">
                                             <input
+                                                value={name} onChange={e => nameChange(e.target.value)}
                                                 className="w-full h-full px-3 py-3 font-sans text-sm font-normal transition-all bg-transparent border rounded-md peer border-blue-gray-200 border-t-transparent text-blue-gray-700 outline outline-0 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                                                 type="text"
                                                 name="name"
@@ -47,6 +89,7 @@ const AddProduct = () => {
                                         </div>
                                         <div className="relative h-11 w-full ">
                                             <input
+                                                value={brandName} onChange={e => brandNameChange(e.target.value)}
                                                 className="w-full h-full px-3 py-3 font-sans text-sm font-normal transition-all bg-transparent border rounded-md peer border-blue-gray-200 border-t-transparent text-blue-gray-700 outline outline-0 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                                                 type="text"
                                                 name="brandName"
@@ -61,6 +104,7 @@ const AddProduct = () => {
                                     <div className="w-full space-y-4">
                                         <div className="relative h-11 w-full ">
                                             <input
+                                                value={price} onChange={e => priceChange(e.target.value)}
                                                 className="w-full h-full px-3 py-3 font-sans text-sm font-normal transition-all bg-transparent border rounded-md peer border-blue-gray-200 border-t-transparent text-blue-gray-700 outline outline-0 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                                                 name="price"
                                                 type="text"
@@ -73,6 +117,7 @@ const AddProduct = () => {
                                         </div>
                                         <div className="relative h-11 w-full ">
                                             <input
+                                                value={type} onChange={e => typeChange(e.target.value)}
                                                 className="w-full h-full px-3 py-3 font-sans text-sm font-normal transition-all bg-transparent border rounded-md peer border-blue-gray-200 border-t-transparent text-blue-gray-700 outline outline-0 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                                                 type="text"
                                                 name="type"
@@ -85,6 +130,7 @@ const AddProduct = () => {
                                         </div>
                                         <div className="relative h-11 w-full">
                                             <input
+                                                value={rating} onChange={e => ratingChange(e.target.value)}
                                                 className="w-full h-full px-3 py-3 font-sans text-sm font-normal transition-all bg-transparent border rounded-md peer border-blue-gray-200 border-t-transparent text-blue-gray-700 outline outline-0 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                                                 type="text"
                                                 name="rating"
@@ -99,6 +145,7 @@ const AddProduct = () => {
                                 </div>
                                 <div className="relative w-full">
                                     <textarea
+                                        value={description} onChange={e => descriptionChange(e.target.value)}
                                         className="w-full h-full px-3 py-3 font-sans text-sm font-normal transition-all bg-transparent border rounded-md peer border-blue-gray-200 border-t-transparent text-blue-gray-700 outline outline-0 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                                         type="text"
                                         name="description"
