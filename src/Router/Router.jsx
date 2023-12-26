@@ -8,6 +8,8 @@ import SignUp from "../Authentication/SignUp/SignUp";
 import SignIn from "../Authentication/SignIn/SignIn";
 import ToyotaCarts from "../Components/BrandsCarts/ToyotaCarts/ToyotaCarts";
 import ToyotaDetails from "../Components/ToyotaDetails/ToyotaDetails";
+import UpdateProduct from "../Components/Update/UpdateProduct";
+import BMWCart from "../Components/BrandsCarts/ToyotaCarts/BMWCart/BMWCart";
 
 const myCreatedRouter = createBrowserRouter([
     {
@@ -25,14 +27,15 @@ const myCreatedRouter = createBrowserRouter([
             },
             {
                 path: "/myCart",
-                element: <MyCart/>
+                element: <MyCart/>,
+                loader: () => fetch('http://localhost:5001/addToCart')
             },
             {
                 path: "/signUp",
                 element: <SignUp/>
             },
             {
-                path: "/sigIn",
+                path: "/signIn",
                 element: <SignIn/>
             },
             {
@@ -44,6 +47,16 @@ const myCreatedRouter = createBrowserRouter([
                 path: "/toyotaDetails/:id",
                 element: <ToyotaDetails/>,
                 loader: ({params}) => fetch(`http://localhost:5001/toyota/${params.id}`)
+            },
+            {
+                path: "/updateProduct/:id",
+                element: <UpdateProduct/>,
+                loader: ({params}) => fetch(`http://localhost:5001/addToCart/${params.id}`)
+            },
+            {
+                path: "/bmw",
+                element: <BMWCart/>,
+                loader: () => fetch('http://localhost:5001/toyota')
             }
         ]
     }

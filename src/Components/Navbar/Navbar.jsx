@@ -3,7 +3,7 @@ import logo from "../../assets/logo.png"
 
 const Navbar = () => {
     return (
-        <div className="flex justify-around items-center h-[80px]  py-4 mt-3 font-lato  text-white ">
+        <div className="flex justify-around items-center h-[80px]  py-4 mt-3 font-lato bg-[#000C21]  text-white ">
             <Link to={'/'}>
                 <div className="flex items-center">
                     <img src={logo} className="w-[130px]" alt="Automotive Brand" />
@@ -44,12 +44,12 @@ const Navbar = () => {
                     </li>
                     <li>
                         <NavLink
-                            to="/login"
+                            to="/signIn"
                             className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "text-red-500 underline" : ""
                             }
                         >
-                            Log in
+                            Sign In
                         </NavLink>
                     </li>
                 </ul>

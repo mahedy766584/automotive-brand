@@ -5,10 +5,13 @@ const Home = () => {
     return (
         <div>
             <div>
-                <Banner/>
+                <Banner />
             </div>
             <div className="mt-6 mb-6">
-                <BrandLogo/>
+                <div className="text-center py-4">
+                    <h1 className="text-4xl font-montserrat font-semibold">Our Category</h1>
+                </div>
+                <BrandLogo />
             </div>
         </div>
     );

@@ -18,7 +18,7 @@ const BrandLogo = () => {
                 <Link to={'/toyotaCarts'}>
                     <div
                         className=" border border-gray-200 rounded-lg shadow p-3 dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-center items-center">
-                        <img className="rounded-lg w-[270px] h-[240px]" src={toyota} alt="TOYOTA" />
+                        <img className="rounded-lg w-[230px] h-[200px]" src={toyota} alt="TOYOTA" />
                         <div className="text-center">
                             <h5 className="mb-2 text-[#000C21] text-4xl font-bold tracking-tight dark:text-white font-goldman ">TOYOTA</h5>
                         </div>
@@ -27,7 +27,7 @@ const BrandLogo = () => {
                 <Link>
                     <div 
                         className="  border border-gray-200 rounded-lg shadow p-3 dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-center items-center">
-                        <img className="rounded-lg w-[270px] h-[240px]" src={bmw} alt="BMW" />
+                        <img className="rounded-lg w-[230px] h-[200px]" src={bmw} alt="BMW" />
                         <div className="text-center">
                             <h5 className="mb-2 text-4xl font-bold tracking-tight text-[#000C21] dark:text-white font-goldman">BMW</h5>
                         </div>
@@ -36,7 +36,7 @@ const BrandLogo = () => {
                 <Link>
                     <div 
                         className=" border border-gray-200 rounded-lg shadow p-3 dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-center items-center">
-                        <img className="rounded-lg w-[270px] h-[240px]" src={honda} alt="HONDA" />
+                        <img className="rounded-lg w-[230px] h-[200px]" src={honda} alt="HONDA" />
                         <div className="text-center">
                             <h5 className="mb-2 text-4xl font-bold tracking-tight text-[#000C21] dark:text-white font-goldman">HONDA</h5>
                         </div>
@@ -45,7 +45,7 @@ const BrandLogo = () => {
                 <Link>
                     <div 
                         className="  border border-gray-200 rounded-lg shadow p-3 dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-center items-center">
-                        <img className="rounded-lg w-[270px] h-[240px]" src={mercedes} alt="MERCEDES" />
+                        <img className="rounded-lg w-[230px] h-[200px]" src={mercedes} alt="MERCEDES" />
                         <div className="text-center">
                             <h5 className="mb-2 text-4xl font-bold tracking-tight text-[#000C21] dark:text-white font-goldman">MERCEDES</h5>
                         </div>
@@ -54,7 +54,7 @@ const BrandLogo = () => {
                 <Link>
                     <div 
                         className=" border border-gray-200 rounded-lg shadow p-3 dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-center items-center">
-                        <img className="rounded-lg w-[270px] h-[240px]" src={tesla} alt="TESLA" />
+                        <img className="rounded-lg w-[230px] h-[200px]" src={tesla} alt="TESLA" />
                         <div className="text-center">
                             <h5 className="mb-2 text-4xl font-bold tracking-tight text-[#000C21] dark:text-white font-goldman">TESLA</h5>
                         </div>
@@ -63,7 +63,7 @@ const BrandLogo = () => {
                 <Link>
                     <div 
                         className=" border border-gray-200 rounded-lg shadow p-3 dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-center items-center">
-                        <img className="rounded-lg w-[270px] h-[240px]" src={ford} alt="FORD" />
+                        <img className="rounded-lg w-[230px] h-[200px]" src={ford} alt="FORD" />
                         <div className="text-center">
                             <h5 className="mb-2 text-4xl font-bold tracking-tight text-[#000C21] dark:text-white font-goldman">FORD</h5>
                         </div>
