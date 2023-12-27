@@ -11,6 +11,9 @@ import ToyotaDetails from "../Components/ToyotaDetails/ToyotaDetails";
 import UpdateProduct from "../Components/Update/UpdateProduct";
 import BMWCart from "../Components/BrandsCarts/ToyotaCarts/BMWCart/BMWCart";
 import HondaCar from "../Components/BrandsCarts/ToyotaCarts/BMWCart/HondaCar";
+import MercedesCart from "../Components/BrandsCarts/ToyotaCarts/BMWCart/MercedesCart";
+import TeslaCart from "../Components/BrandsCarts/ToyotaCarts/BMWCart/TeslaCart";
+import FordCart from "../Components/BrandsCarts/ToyotaCarts/BMWCart/FordCart";
 
 const myCreatedRouter = createBrowserRouter([
     {
@@ -62,6 +65,21 @@ const myCreatedRouter = createBrowserRouter([
             {
                 path: "/honda",
                 element: <HondaCar/>,
+                loader: () => fetch('http://localhost:5001/toyota')
+            },
+            {
+                path: "/mercedes",
+                element: <MercedesCart/>,
+                loader: () => fetch('http://localhost:5001/toyota')
+            },
+            {
+                path: "/tesla",
+                element: <TeslaCart/>,
+                loader: () => fetch('http://localhost:5001/toyota')
+            },
+            {
+                path: "/ford",
+                element: <FordCart/>,
                 loader: () => fetch('http://localhost:5001/toyota')
             }
         ]

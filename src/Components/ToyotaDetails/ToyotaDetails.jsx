@@ -42,7 +42,7 @@ const ToyotaDetails = () => {
 
             <div className="px-6 ">
                 <div className="flex py-10 px-6 mt-5 flex-col gap-10 items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row">
-                    <div className="w-3/4 mt-4">
+                    <div className="max-w-screen-lg mt-4">
                         <img className="object-cover w-full rounded-t-lg md:h-auto  md:rounded-none md:rounded-s-lg" src={toyotaLoaded.photo} alt={toyotaLoaded.brandName} />
                     </div>
                     <div className="space-y-5">
