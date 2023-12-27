@@ -24,7 +24,7 @@ const BrandLogo = () => {
                         </div>
                     </div>
                 </Link>
-                <Link>
+                <Link to={'/bmw'}>
                     <div 
                         className="  border border-gray-200 rounded-lg shadow p-3 dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-center items-center">
                         <img className="rounded-lg w-[230px] h-[200px]" src={bmw} alt="BMW" />
@@ -33,7 +33,7 @@ const BrandLogo = () => {
                         </div>
                     </div>
                 </Link>
-                <Link>
+                <Link to={'/honda'}>
                     <div 
                         className=" border border-gray-200 rounded-lg shadow p-3 dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-center items-center">
                         <img className="rounded-lg w-[230px] h-[200px]" src={honda} alt="HONDA" />

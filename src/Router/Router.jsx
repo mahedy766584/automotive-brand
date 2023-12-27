@@ -10,6 +10,7 @@ import ToyotaCarts from "../Components/BrandsCarts/ToyotaCarts/ToyotaCarts";
 import ToyotaDetails from "../Components/ToyotaDetails/ToyotaDetails";
 import UpdateProduct from "../Components/Update/UpdateProduct";
 import BMWCart from "../Components/BrandsCarts/ToyotaCarts/BMWCart/BMWCart";
+import HondaCar from "../Components/BrandsCarts/ToyotaCarts/BMWCart/HondaCar";
 
 const myCreatedRouter = createBrowserRouter([
     {
@@ -56,6 +57,11 @@ const myCreatedRouter = createBrowserRouter([
             {
                 path: "/bmw",
                 element: <BMWCart/>,
+                loader: () => fetch('http://localhost:5001/toyota')
+            },
+            {
+                path: "/honda",
+                element: <HondaCar/>,
                 loader: () => fetch('http://localhost:5001/toyota')
             }
         ]
