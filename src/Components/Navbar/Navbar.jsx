@@ -1,5 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png"
+import { IoMdHome } from "react-icons/io";
+import { IoCartOutline } from "react-icons/io5";
+
+
 
 const Navbar = () => {
     return (
@@ -12,7 +16,8 @@ const Navbar = () => {
             </Link>
             <div>
                 <ul className="flex items-center gap-10 text-lg font-poppins">
-                    <li>
+                    <li className="flex items-center gap-1">
+                        <IoMdHome/>
                         <NavLink
                             to="/"
                             className={({ isActive, isPending }) =>
@@ -32,7 +37,8 @@ const Navbar = () => {
                             Add Product
                         </NavLink>
                     </li>
-                    <li>
+                    <li className="flex items-center gap-1">
+                        <IoCartOutline/>
                         <NavLink
                             to="/myCart"
                             className={({ isActive, isPending }) =>

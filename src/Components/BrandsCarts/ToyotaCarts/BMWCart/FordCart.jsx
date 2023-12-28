@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "../../../Navbar/Navbar";
 import ReactStars from "react-stars";
 import { useState } from "react";
+import notFound from "../../../../assets/notFound.png"
 
 const FordCart = () => {
 
@@ -14,7 +15,7 @@ const FordCart = () => {
     const fordFilter = fordLoaded.filter(ford => ford.brand === "ford");
     console.log(fordFilter)
 
-    if(fordFilter.length === 0){
+    if (fordFilter.length === 0) {
         console.log('Page not found')
     }
 
@@ -29,9 +30,18 @@ const FordCart = () => {
                 <Navbar />
             </div>
 
-            <div className="grid grid-cols-3 max-w-screen-xl mx-auto gap-4 mt-5">
+            <div>
                 {
-                    fordFilter.length === 0 ? <div><p>Page Not Found</p></div> : fordFilter.map(fordMap => <div key={fordMap._id}>
+                    fordFilter.length === 0 ? <div className="mx-auto text-center flex flex-col justify-center items-center">
+                        <div className="flex flex-col justify-center items-center">
+                            <img src={notFound} alt="Page Not Found" />
+                            <div className="-mt-24">
+                                <h1 className="text-red-600 text-5xl font-bold font-montserrat ">Sorry</h1>
+                                <h1 className="text-2xl text-gray-700">There are no products listed on this page.</h1>
+                                <h1 className="text-2xl text-gray-700">Please look at other brands</h1>
+                            </div>
+                        </div>
+                    </div> : fordFilter.map(fordMap => <div className="grid grid-cols-3 max-w-screen-xl mx-auto gap-4 mt-5" key={fordMap._id}>
                         <div className=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col gap-7">
                             <div className="h-56 relative">
                                 <img className="rounded-t-lg p-3" src={fordMap.photo} alt={fordMap.name} />

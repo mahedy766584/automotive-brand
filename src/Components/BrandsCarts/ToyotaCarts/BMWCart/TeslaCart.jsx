@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "../../../Navbar/Navbar";
 import ReactStars from "react-stars";
 import { useState } from "react";
+import notFound from '../../../../assets/notFound.png'
 
 const TeslaCart = () => {
 
@@ -23,9 +24,20 @@ const TeslaCart = () => {
                 <Navbar />
             </div>
 
-            <div className="grid grid-cols-3 max-w-screen-xl mx-auto gap-4 mt-5">
+            <div>
                 {
-                    teslaFilter.map(teslaMap => <div key={teslaMap._id}>
+                    teslaFilter.length === 0? <div className="mx-auto text-center flex flex-col justify-center items-center">
+                    <div className="flex flex-col justify-center items-center">
+                        <img src={notFound} alt="Page Not Found" />
+                        <div className="-mt-24">
+                            <h1 className="text-red-600 text-5xl font-bold font-montserrat ">Sorry</h1>
+                            <h1 className="text-2xl text-gray-700">There are no products listed on this page.</h1>
+                            <h1 className="text-2xl text-gray-700">Please look at other brands</h1>
+                        </div>
+                    </div>
+                </div> :
+                    teslaFilter.map(teslaMap => <div className="grid grid-cols-3 max-w-screen-xl mx-auto gap-4 mt-5"
+                    key={teslaMap._id}>
                         <div className=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <div className="h-56 relative">
                                 <img className="rounded-t-lg p-3" src={teslaMap.photo} alt={teslaMap.name} />
