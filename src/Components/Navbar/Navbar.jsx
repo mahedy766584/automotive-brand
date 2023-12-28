@@ -2,12 +2,27 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png"
 import { IoMdHome } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
+import { useContext } from "react";
+import { AuthContext } from "../../Authentication/AuthProvider/Authprovider";
 
 
 
 const Navbar = () => {
+
+    const { logOut, user } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(result => {
+                console.log(result)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     return (
-        <div className="flex justify-around items-center h-[80px]  py-4 mt-3 font-lato bg-[#000C21]  text-white ">
+        <div className="flex justify-around items-center h-[100px] font-lato bg-[#000C21]  text-white ">
             <Link to={'/'}>
                 <div className="flex items-center">
                     <img src={logo} className="w-[130px]" alt="Automotive Brand" />
@@ -17,7 +32,7 @@ const Navbar = () => {
             <div>
                 <ul className="flex items-center gap-10 text-lg font-poppins">
                     <li className="flex items-center gap-1">
-                        <IoMdHome/>
+                        <IoMdHome />
                         <NavLink
                             to="/"
                             className={({ isActive, isPending }) =>
@@ -38,7 +53,7 @@ const Navbar = () => {
                         </NavLink>
                     </li>
                     <li className="flex items-center gap-1">
-                        <IoCartOutline/>
+                        <IoCartOutline />
                         <NavLink
                             to="/myCart"
                             className={({ isActive, isPending }) =>
@@ -61,7 +76,17 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="font-poppins text-lg">
-                <button className="bg-red-600 px-10 py-2 rounded-sm">Sign out</button>
+                <div className="flex items-center gap-1">
+                    <img className="w-[50px] rounded-[100%]" src={user?.photoURL} alt="" />
+                    <details className="dropdown">
+                        <summary className="m-1 px-8 py-2 rounded-md cursor-pointer bg-red-600 ">Profile</summary>
+                        <ul className="p-2 shadow menu bg-[#000C21] dropdown-content z-[1]  rounded-box  -ml-24">
+                            <li className="border-b"><a onClick={handleLogOut}>{user ? "Sign Out" : <Link to={'/signIn'}>Sign In</Link>}</a></li>
+                            <li className="border-b"><a>Name: {user?.displayName}</a></li>
+                            <li><a>Email: {user?.email}</a></li>
+                        </ul>
+                    </details>
+                </div>
             </div>
         </div>
     );
@@ -70,3 +95,4 @@ const Navbar = () => {
 export default Navbar;
 
 //navbar bg color code: #000C21;
+//<img className="w-[50px] rounded-[100%]" src={user?.photoURL} alt="" />

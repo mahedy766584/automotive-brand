@@ -1,8 +1,15 @@
+import notFoundPage from "../../src/assets/notFoundPage.png"
+import Navbar from "../Components/Navbar/Navbar";
 
 const ErrorPage = () => {
     return (
         <div>
-            <h1>Error Page</h1>
+            <div>
+                <Navbar/>
+            </div>
+            <div className="flex items-center justify-center">
+                <img src={notFoundPage} alt="" />
+            </div>
         </div>
     );
 };

@@ -14,6 +14,7 @@ import HondaCar from "../Components/BrandsCarts/ToyotaCarts/BMWCart/HondaCar";
 import MercedesCart from "../Components/BrandsCarts/ToyotaCarts/BMWCart/MercedesCart";
 import TeslaCart from "../Components/BrandsCarts/ToyotaCarts/BMWCart/TeslaCart";
 import FordCart from "../Components/BrandsCarts/ToyotaCarts/BMWCart/FordCart";
+import PrivateRoute from "../Authentication/Private/PrivateRoute";
 
 const myCreatedRouter = createBrowserRouter([
     {
@@ -44,7 +45,7 @@ const myCreatedRouter = createBrowserRouter([
             },
             {
                 path: "/toyotaCarts",
-                element: <ToyotaCarts/>,
+                element: <PrivateRoute><ToyotaCarts/></PrivateRoute>,
                 loader: () => fetch('http://localhost:5001/toyota')
             },
             {

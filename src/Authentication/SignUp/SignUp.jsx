@@ -5,10 +5,11 @@ import Swal from "sweetalert2";
 import Navbar from "../../Components/Navbar/Navbar";
 import { FcGoogle } from "react-icons/fc";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, googleLogin } = useContext(AuthContext);
 
     const handleRegister = e => {
         e.preventDefault();
@@ -39,6 +40,21 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
+
+                //update profile
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: photo,
+                    userName: userName,
+                    phoneNumber: number
+                })
+                .then(() =>{
+                    console.log('Update Profile')
+                })
+                .catch(error =>{
+                    console.log(error.message)
+                })
+
                 Swal.fire({
                     title: "Good job!",
                     text: "You Sign Up successful!",
@@ -47,11 +63,36 @@ const SignUp = () => {
             })
             .catch(error => {
                 console.log(error.message)
+                Swal.fire({
+                    title: "Sorry!",
+                    text: `${error.message}`,
+                    icon: "error"
+                });
             })
         form.reset("")
     }
 
     const [showPss, setShowPass] = useState(false)
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                console.log(result.user)
+                Swal.fire({
+                    title: "Good job!",
+                    text: "You Sign Up successful with google!",
+                    icon: "success"
+                });
+            })
+            .then(error => {
+                console.log(error.message)
+                Swal.fire({
+                    title: "Sorry!",
+                    text: `${error.message}`,
+                    icon: "success"
+                });
+            })
+    }
 
     return (
         <div>
@@ -63,7 +104,7 @@ const SignUp = () => {
                     <div
                         className="relative grid mx-4 mb-4 -mt-6 overflow-hidden text-white shadow-lg h-28 place-items-center rounded-xl bg-gradient-to-tr from-[#000C21] to-[#000C21] bg-clip-border shadow-gray-900/20">
                         <h3 className="block font-goldman text-3xl antialiased font-semibold leading-snug tracking-normal text-white">
-                            Sign In Now
+                            Sign Up Now
                         </h3>
                     </div>
                     <form onSubmit={handleRegister}>
@@ -162,7 +203,7 @@ const SignUp = () => {
                         <div className="p-6 pt-0">
                             <input
                                 className="block w-full select-none rounded-lg bg-gradient-to-tr from-[#000C21] to-[#000C21] py-3 px-6 text-center align-middle font-poppins text-md cursor-pointer font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                                type="submit" value="Sign In" />
+                                type="submit" value="Sign Up" />
                         </div>
                     </form>
                     <div className="pb-4 pl-7">
@@ -175,7 +216,8 @@ const SignUp = () => {
                             <div className="w-full h-0.5 bg-black rounded-full" />
                         </div>
                         <div className="text-center">
-                            <button className="border w-full py-1 flex justify-center items-center border-[#000C21] rounded-full"><FcGoogle className="text-4xl" /></button>
+                            <button onClick={handleGoogleLogin}
+                                className="border w-full py-1 flex justify-center items-center border-[#000C21] rounded-full"><FcGoogle className="text-4xl" /></button>
                         </div>
                     </div>
                 </div>

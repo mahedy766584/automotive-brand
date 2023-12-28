@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import { FcGoogle } from "react-icons/fc";
 import { useContext, useState } from "react";
@@ -8,7 +8,11 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
 const SignIn = () => {
 
-    const { logIn } = useContext(AuthContext);
+    const { logIn, googleLogin } = useContext(AuthContext);
+
+    const location = useLocation()
+
+    const navigate = useNavigate();
 
     const handleSignIn = e => {
         e.preventDefault();
@@ -19,6 +23,19 @@ const SignIn = () => {
 
         // const userData = {photo, name, userName, email, password, number}
 
+        if (password.length < 6) {
+            Swal.fire({ title: "Sorry!", text: "Your password must be six characters!", icon: "error" });
+            return;
+        } else if (!/[!@#$%^&*/]/.test(password)) {
+            Swal.fire({ title: "Sorry!", text: "Your password must be any special characters!", icon: "error" });
+            return;
+        } else if (!/[0-1]/.test(password)) {
+            Swal.fire({ title: "Sorry!", text: "Your password must be any number!", icon: "error" });
+            return;
+        } else if (!/[A-Z]/.test(password)) {
+            Swal.fire({ title: "Sorry!", text: "Your password must be any capital letter!", icon: "error" });
+        }
+
         logIn(email, password)
             .then(result => {
                 console.log(result.user)
@@ -27,11 +44,33 @@ const SignIn = () => {
                     text: "You Log In successful!",
                     icon: "success"
                 });
+                navigate(location?.state ? location?.state : "/")
             })
             .catch(error => {
                 console.log(error.message)
+                Swal.fire({
+                    title: "Sorry!",
+                    text: `${error.message}`,
+                    icon: "error"
+                });
             })
         form.reset("")
+    }
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                console.log(result.user)
+                navigate('/')
+            })
+            .catch(error => {
+                console.log(error.message)
+                Swal.fire({
+                    title: "Sorry!",
+                    text: `${error.message}`,
+                    icon: "error"
+                });
+            })
     }
 
     const [showPss, setShowPass] = useState(false)
@@ -111,7 +150,8 @@ const SignIn = () => {
                             <div className="w-full h-0.5 bg-black rounded-full" />
                         </div>
                         <div className="text-center">
-                            <button className="border w-full py-1 flex justify-center items-center border-[#000C21] rounded-full"><FcGoogle className="text-4xl" /></button>
+                            <button onClick={handleGoogleLogin}
+                                className="border w-full py-1 flex justify-center items-center border-[#000C21] rounded-full"><FcGoogle className="text-4xl" /></button>
                         </div>
                     </div>
                 </div>
