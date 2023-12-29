@@ -4,12 +4,16 @@ import { IoMdHome } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { useContext } from "react";
 import { AuthContext } from "../../Authentication/AuthProvider/Authprovider";
+import { useThemes } from "../../Hooks/UseThemes";
+import { FaRegMoon } from "react-icons/fa";
+import { IoMdSunny } from "react-icons/io";
 
 
 
 const Navbar = () => {
 
     const { logOut, user } = useContext(AuthContext);
+    const { changeTheme, mode } = useThemes();
 
     const handleLogOut = () => {
         logOut()
@@ -80,10 +84,11 @@ const Navbar = () => {
                     <img className="w-[50px] rounded-[100%]" src={user?.photoURL} alt="" />
                     <details className="dropdown">
                         <summary className="m-1 px-8 py-2 rounded-md cursor-pointer bg-red-600 ">Profile</summary>
-                        <ul className="p-2 shadow menu bg-[#000C21] dropdown-content z-[1]  rounded-box  -ml-24">
-                            <li className="border-b"><a onClick={handleLogOut}>{user ? "Sign Out" : <Link to={'/signIn'}>Sign In</Link>}</a></li>
-                            <li className="border-b"><a>Name: {user?.displayName}</a></li>
-                            <li><a>Email: {user?.email}</a></li>
+                        <ul className="p-2 mt-7 shadow menu bg-[#000C21] dropdown-content z-[1]  rounded-box  -ml-24">
+                            <li className="py-2 border-b text-2xl"><a><button onClick={changeTheme}>{mode === "dark"? <FaRegMoon/> : <IoMdSunny/>}</button></a></li>
+                            <li className="border-b py-2"><a onClick={handleLogOut}>{user ? "Sign Out" : <Link to={'/signIn'}>Sign In</Link>}</a></li>
+                            <li className="border-b py-2"><a>Name: {user?.displayName}</a></li>
+                            <li className="py-2"><a>Email: {user?.email}</a></li>
                         </ul>
                     </details>
                 </div>

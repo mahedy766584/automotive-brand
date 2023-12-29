@@ -14,7 +14,7 @@ const BrandLogo = () => {
         <div>
 
 
-            <div className="grid lg:grid-cols-3 gap-4 max-w-screen-lg mx-auto">
+            <div className="grid lg:grid-cols-3 gap-4 max-w-screen-lg mx-auto pb-10">
                 <Link to={'/toyotaCarts'}>
                     <div
                         className=" border border-gray-200 rounded-lg shadow p-3 dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-center items-center">

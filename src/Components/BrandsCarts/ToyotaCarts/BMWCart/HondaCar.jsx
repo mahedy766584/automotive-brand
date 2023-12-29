@@ -4,6 +4,7 @@ import Navbar from "../../../Navbar/Navbar";
 import ReactStars from "react-stars";
 import { useState } from "react";
 import notFound from "../../../../assets/notFound.png"
+import HondaSlider from "../../../../SliderInBrandCart/HondaSlider";
 
 const HondaCar = () => {
 
@@ -19,9 +20,13 @@ const HondaCar = () => {
     }
 
     return (
-        <div>
+        <div className="dark:bg-black h-screen">
             <div>
                 <Navbar />
+            </div>
+
+            <div className="flex justify-center items-center mt-4">
+                <HondaSlider/>
             </div>
 
             <div className="grid grid-cols-3 max-w-screen-xl mx-auto gap-4 mt-5">

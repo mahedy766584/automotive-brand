@@ -38,10 +38,10 @@ const MyCart = () => {
             <div>
                 <Navbar />
             </div>
-            <div>
+            <div className="py-6">
                 {
                     addCart.map(cart => 
-                    <div key={cart._id}>
+                    <div key={cart._id} className="">
                         <div className="px-6 ">
                             <div className="flex py-10 px-6 mt-5 flex-col gap-10 items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row">
                                 <div className="w-1/2 mt-4">
@@ -49,9 +49,9 @@ const MyCart = () => {
                                 </div>
                                 <div className="space-y-5">
                                     <div className="font-poppins">
-                                        <h5 className="mb-2 text-4xl font-semibold font-goldman tracking-tight text-gray-900 dark:text-white">{cart.name}</h5>
-                                        <h5 className="mb-2 text-lg font-medium tracking-tight text-gray-900 dark:text-white">{cart.brandName}</h5>
-                                        <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{cart.type}</h5>
+                                        <h5 className="mb-2 text-4xl font-semibold font-goldman tracking-tight text-gray-900 dark:text-black">{cart.name}</h5>
+                                        <h5 className="mb-2 text-lg font-medium tracking-tight text-gray-900 dark:text-black">{cart.brandName}</h5>
+                                        <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-black">{cart.type}</h5>
                                         <p className="text-gray-700 lg:w-[500px] font-poppins font-medium">{cart.description}</p>
                                         {/* <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{cart.price}</h5> */}
                                     </div>
@@ -67,7 +67,7 @@ const MyCart = () => {
                                                 <button className="btn btn-sm">{cart.rating}</button>
                                             </div>
                                         </div>
-                                        <h5 className="mb-2 text-lg font-medium  tracking-tight text-gray-900 dark:text-white">{cart.price}</h5>
+                                        <h5 className="mb-2 text-lg font-medium  tracking-tight text-gray-900 dark:text-black">{cart.price}</h5>
                                     </div>
                                     <div className="flex  gap-10 mt-3 items-center">
                                         <button onClick={()=>handleDelete(cart._id)}

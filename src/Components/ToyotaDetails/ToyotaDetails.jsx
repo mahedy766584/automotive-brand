@@ -47,9 +47,9 @@ const ToyotaDetails = () => {
                     </div>
                     <div className="space-y-5">
                         <div className="font-poppins">
-                            <h5 className="mb-2 text-4xl font-semibold font-goldman tracking-tight text-gray-900 dark:text-white">{toyotaLoaded.name}</h5>
-                            <h5 className="mb-2 text-lg font-medium tracking-tight text-gray-900 dark:text-white">{toyotaLoaded.brandName}</h5>
-                            <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{toyotaLoaded.type}</h5>
+                            <h5 className="mb-2 text-4xl font-semibold font-goldman tracking-tight text-gray-900 dark:text-black">{toyotaLoaded.name}</h5>
+                            <h5 className="mb-2 text-lg font-medium tracking-tight text-gray-900 dark:text-black">{toyotaLoaded.brandName}</h5>
+                            <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-black">{toyotaLoaded.type}</h5>
                             <p className="text-gray-700 font-poppins font-medium">{toyotaLoaded.description}</p>
                         </div>
                         <div className="flex justify-between font-poppins">
@@ -64,7 +64,7 @@ const ToyotaDetails = () => {
                                     <button className="btn btn-sm">{toyotaLoaded.rating}</button>
                                 </div>
                             </div>
-                            <h5 className="mb-2 text-lg font-medium  tracking-tight text-gray-900 dark:text-white">{toyotaLoaded.price}</h5>
+                            <h5 className="mb-2 text-lg font-medium  tracking-tight text-gray-900 dark:text-black">{toyotaLoaded.price}</h5>
                         </div>
                         <div className="flex  gap-10 mt-3 items-center">
                             <button className="uppercase text-xs font-semibold font-poppins bg-red-600 text-white px-6 py-2 rounded">Buy Now</button>

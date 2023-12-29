@@ -4,6 +4,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import ReactStars from "react-stars";
 import Navbar from "../../../Navbar/Navbar";
 import notFound from "../../../../assets/notFound.png"
+import BMWSlider from "../../../../SliderInBrandCart/BMWSlider";
 
 const BMWCart = () => {
 
@@ -18,10 +19,15 @@ const BMWCart = () => {
     }
 
     return (
-        <div>
+        <div className="dark:bg-black h-screen">
             <div>
                 <Navbar />
             </div>
+
+            <div className="flex justify-center items-center mt-4">
+                <BMWSlider/>
+            </div>
+
             <div className="grid grid-cols-3 max-w-screen-xl mx-auto gap-4 mt-5">
                 {
                     bmwFilter.length === 0 ? <div className="mx-auto text-center flex flex-col justify-center items-center">

@@ -4,6 +4,7 @@ import Navbar from "../../Navbar/Navbar";
 import { useState } from "react";
 import ReactStars from "react-stars";
 import notFound from "../../../assets/notFound.png"
+import ToyotaSlider from "../../../SliderInBrandCart/ToyotaSlider";
 
 const ToyotaCarts = () => {
 
@@ -18,11 +19,14 @@ const ToyotaCarts = () => {
     }
 
     return (
-        <div>
+        <div className="dark:bg-black">
             <div>
                 <Navbar />
             </div>
-            <div className="grid grid-cols-3 max-w-screen-xl mx-auto gap-4 mt-5">
+            <div className="flex items-center justify-center mt-5">
+                <ToyotaSlider/>
+            </div>
+            <div className="grid grid-cols-3 py-5 max-w-screen-xl mx-auto gap-4 mt-5">
                 {
                     toyotaFilter.length === 0 ? <div className="mx-auto text-center flex flex-col justify-center items-center">
                         <div className="flex flex-col justify-center items-center">

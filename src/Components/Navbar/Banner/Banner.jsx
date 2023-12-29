@@ -8,8 +8,8 @@ const Banner = () => {
                 <Navbar/>
             </div>
             <div>
-                <div className="h-[70vh]">
-                    <div className="carousel w-full relative h-[70vh]">
+                <div className="h-[80vh]">
+                    <div className="carousel w-full h-[80vh]">
                         <div id="item1"
                             style={{
                                 backgroundImage: `url(https://i.ibb.co/kDzTQBK/pexels-eduardo-valdes-18375386.jpg), linear-gradient(to top, rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.90))`,
@@ -100,7 +100,7 @@ const Banner = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex justify-center w-full py-2 gap-3 absolute bottom-36">
+                    <div className="flex justify-center w-full gap-3  -mt-9">
                         <a href="#item1" className="btn btn-xs">1</a>
                         <a href="#item2" className="btn btn-xs">2</a>
                         <a href="#item3" className="btn btn-xs">3</a>
