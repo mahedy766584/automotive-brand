@@ -4,5 +4,5 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 Currently, two official plugins are available:
 
-- [automotive-brand-client-site](https://automotive-brand-133cf.web.app/) 
-- [automotive-brand-server-site](https://automotive-brand-server.vercel.app/) uses 
+- [Automotive brand client site link](https://automotive-brand-133cf.web.app/) 
+- [Automotive brand server site link](https://automotive-brand-server.vercel.app/)
