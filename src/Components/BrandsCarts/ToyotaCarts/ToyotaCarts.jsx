@@ -26,7 +26,7 @@ const ToyotaCarts = () => {
             <div className="flex items-center justify-center mt-5">
                 <ToyotaSlider/>
             </div>
-            <div className="grid grid-cols-3 py-5 max-w-screen-xl mx-auto gap-4 mt-5">
+            <div className="grid lg:grid-cols-3 py-5 max-w-screen-xl mx-auto gap-4 px-6 lg:px-0 lg:mt-5">
                 {
                     toyotaFilter.length === 0 ? <div className="mx-auto text-center flex flex-col justify-center items-center">
                         <div className="flex flex-col justify-center items-center">

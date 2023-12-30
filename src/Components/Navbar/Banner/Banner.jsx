@@ -21,8 +21,8 @@ const Banner = () => {
                             className="carousel-item w-full flex justify-center items-center">
 
                             <div className="flex space-y-2 flex-col items-center text-center justify-center">
-                                <h1 className="font-goldman text-9xl text-red-700">Toyota</h1>
-                                <h1 className="text-4xl text-gray-300 font-semibold font-montserrat w-[900px]">Driving Innovation, Inspiring Tomorrow: Toyota Cars - Your Journey Starts Here.</h1>
+                                <h1 className="font-goldman lg:text-9xl text-5xl text-red-700">Toyota</h1>
+                                <h1 className="lg:text-4xl text-gray-300 font-semibold font-montserrat lg:w-[900px] px-4 lg:px-0">Driving Innovation, Inspiring Tomorrow: Toyota Cars - Your Journey Starts Here.</h1>
                             </div>
                         </div>
                         <div id="item2"
@@ -36,8 +36,8 @@ const Banner = () => {
                             className="carousel-item w-full flex justify-center items-center">
 
                             <div className="flex space-y-2 flex-col items-center text-center justify-center">
-                                <h1 className="font-goldman text-9xl text-red-700">Ford</h1>
-                                <h1 className="text-4xl text-gray-300 font-semibold font-montserrat w-[900px]">Ford Accelerating Dreams, Redefining Journeys.</h1>
+                                <h1 className="font-goldman lg:text-9xl text-5xl text-red-700">Ford</h1>
+                                <h1 className="lg:text-4xl text-gray-300 font-semibold font-montserrat lg:w-[900px] px-4 lg:px-0">Ford Accelerating Dreams, Redefining Journeys.</h1>
                             </div>
                         </div>
                         <div id="item3"
@@ -51,8 +51,8 @@ const Banner = () => {
                             className="carousel-item w-full flex justify-center items-center">
 
                             <div className="flex space-y-2 flex-col items-center text-center justify-center">
-                                <h1 className="font-goldman text-9xl text-red-700">BMW</h1>
-                                <h1 className="text-4xl text-gray-300 font-semibold font-montserrat w-[900px]">BMW: Beyond the Drive, Elevating Every Journey.</h1>
+                                <h1 className="font-goldman lg:text-9xl text-5xl text-red-700">BMW</h1>
+                                <h1 className="lg:text-4xl text-gray-300 font-semibold font-montserrat lg:w-[900px] px-4 lg:px-0">BMW: Beyond the Drive, Elevating Every Journey.</h1>
                             </div>
                         </div>
                         <div id="item4"
@@ -65,8 +65,8 @@ const Banner = () => {
                             }}
                             className="carousel-item w-full flex justify-center items-center">
                             <div className="flex space-y-2 flex-col items-center text-center justify-center">
-                                <h1 className="font-goldman text-9xl text-red-700">Mercedes-Benz</h1>
-                                <h1 className="text-4xl text-gray-300 font-semibold font-montserrat w-[900px]">Mercedes-Benz: The Best or Nothing – Elevating Luxury, Redefining Performance.</h1>
+                                <h1 className="font-goldman lg:text-9xl text-5xl text-red-700">Mercedes-Benz</h1>
+                                <h1 className="lg:text-4xl text-gray-300 font-semibold font-montserrat lg:w-[900px] px-4 lg:px-0">Mercedes-Benz: The Best or Nothing – Elevating Luxury, Redefining Performance.</h1>
                             </div>
                         </div>
                         <div id="item5"
@@ -80,8 +80,8 @@ const Banner = () => {
                             className="carousel-item w-full flex justify-center items-center">
 
                             <div className="flex space-y-2 flex-col items-center text-center justify-center">
-                                <h1 className="font-goldman text-9xl text-red-700">Tesla</h1>
-                                <h1 className="text-4xl text-gray-300 font-semibold font-montserrat w-[900px]">Tesla: Accelerating the World's Transition to Sustainable Energy.</h1>
+                                <h1 className="font-goldman lg:text-9xl text-5xl text-red-700">Tesla</h1>
+                                <h1 className="lg:text-4xl text-gray-300 font-semibold font-montserrat lg:w-[900px] px-4 lg:px-0">Tesla: Accelerating the World's Transition to Sustainable Energy.</h1>
                             </div>
                         </div>
                         <div id="item6"
@@ -95,12 +95,12 @@ const Banner = () => {
                             className="carousel-item w-full flex justify-center items-center">
 
                             <div className="flex space-y-2 flex-col items-center text-center justify-center">
-                                <h1 className="font-goldman text-9xl text-red-700">Honda</h1>
-                                <h1 className="text-4xl text-gray-300 font-semibold font-montserrat w-[900px]">Honda: Innovate. Drive. Thrive. Reliable, efficient, eco-friendly journeys await.</h1>
+                                <h1 className="font-goldman lg:text-9xl text-5xl text-red-700">Honda</h1>
+                                <h1 className="lg:text-4xl text-gray-300 font-semibold font-montserrat lg:w-[900px] px-4 lg:px-0">Honda: Innovate. Drive. Thrive. Reliable, efficient, eco-friendly journeys await.</h1>
                             </div>
                         </div>
                     </div>
-                    <div className="flex justify-center w-full gap-3  -mt-9">
+                    <div className="lg:flex justify-center w-full gap-3  -mt-9 hidden ">
                         <a href="#item1" className="btn btn-xs">1</a>
                         <a href="#item2" className="btn btn-xs">2</a>
                         <a href="#item3" className="btn btn-xs">3</a>
