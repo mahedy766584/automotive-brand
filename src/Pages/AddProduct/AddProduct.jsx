@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
 
@@ -19,7 +19,7 @@ const AddProduct = () => {
         const productDetails = { photo, name, brandName, price, type, rating, description, brand: brand }
         console.log(productDetails)
 
-        fetch('http://localhost:5001/toyota', {
+        fetch('http://localhost:5001/brandCart', {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -30,18 +30,14 @@ const AddProduct = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged > 0) {
-                    toast.success('Your product successfully added!', {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
+                    Swal.fire({
+                        title: "Thank You!",
+                        text: "Your product successfully added!",
+                        icon: "success"
                     });
                 }
             })
+            e.target.reset("")
     }
 
     return (
@@ -61,8 +57,8 @@ const AddProduct = () => {
                     <form onSubmit={handleAddProduct}>
                         <div>
                             <div className="flex flex-col gap-4 p-6">
-                                <div className="flex w-full items-start gap-4">
-                                    <div className="space-y-4 w-full">
+                                <div className="flex flex-col lg:flex-row w-full items-start gap-4">
+                                    <div className="space-y-4 w-full ">
                                         <div className="relative h-11 w-full">
                                             <input
                                                 value={photo} onChange={e => photoChange(e.target.value)}
@@ -105,12 +101,11 @@ const AddProduct = () => {
                                             <select value={brand} onChange={e => brandChange(e.target.value)}
                                                 className="w-full  h-full px-3 py-3 font-sans text-sm font-normal transition-all bg-transparent border rounded-md peer border-blue-gray-200 border-t-transparent text-blue-gray-700 outline outline-0 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                                             >
-                                                <option value="toyota">Toyota</option>
                                                 <option value="bmw">BMW</option>
-                                                <option value="tesla">Tesla</option>
                                                 <option value="honda">Honda</option>
-                                                <option value="honda">Honda</option>
+                                                <option value="toyota">Toyota</option>
                                                 <option value="ford">Ford</option>
+                                                <option value="tesla">Tesla</option>
                                                 <option value="mercedes">Mercedes</option>
                                             </select>
                                         </div>
@@ -174,7 +169,7 @@ const AddProduct = () => {
                         </div>
                         <div className="p-6 pt-0">
                             <input
-                                className="block w-full select-none rounded-lg bg-gradient-to-tr from-[#000C21] to-[#000C21] py-3 px-6 text-center align-middle font-poppins text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                className="block w-full cursor-pointer select-none rounded-lg bg-gradient-to-tr from-[#000C21] to-[#000C21] py-3 px-6 text-center align-middle font-poppins text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                 type="submit" value="Add Product" />
                         </div>
                     </form>

@@ -2,7 +2,7 @@
 const FordSlider = () => {
     return (
         <div>
-            <div className="carousel w-[83vw] mx-auto">
+            <div className="carousel w-[83vw] mx-auto lg:flex hidden">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src="https://t3.ftcdn.net/jpg/05/25/02/50/240_F_525025009_JD0vFw8mQhKnOmQfa4bRbhkzccQl0juZ.jpg" className="w-full h-[350px] object-cover" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

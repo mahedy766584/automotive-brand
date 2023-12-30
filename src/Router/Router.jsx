@@ -28,12 +28,12 @@ const myCreatedRouter = createBrowserRouter([
             },
             {
                 path: "/addProduct",
-                element: <AddProduct/>
+                element: <PrivateRoute><AddProduct/></PrivateRoute>
             },
             {
                 path: "/myCart",
-                element: <MyCart/>,
-                loader: () => fetch('http://localhost:5001/addToCart')
+                element: <PrivateRoute><MyCart/></PrivateRoute>,
+                loader: () => fetch('https://automotive-brand-server.vercel.app/myCart')
             },
             {
                 path: "/signUp",
@@ -45,43 +45,43 @@ const myCreatedRouter = createBrowserRouter([
             },
             {
                 path: "/toyotaCarts",
-                element: <PrivateRoute><ToyotaCarts/></PrivateRoute>,
-                loader: () => fetch('http://localhost:5001/toyota')
+                element: <ToyotaCarts/>,
+                loader: () => fetch('https://automotive-brand-server.vercel.app/brandCart')
             },
             {
                 path: "/toyotaDetails/:id",
-                element: <ToyotaDetails/>,
-                loader: ({params}) => fetch(`http://localhost:5001/toyota/${params.id}`)
+                element: <PrivateRoute><ToyotaDetails/></PrivateRoute>,
+                loader: ({params}) => fetch(`https://automotive-brand-server.vercel.app/brandCart/${params.id}`)
             },
             {
                 path: "/updateProduct/:id",
-                element: <UpdateProduct/>,
-                loader: ({params}) => fetch(`http://localhost:5001/addToCart/${params.id}`)
+                element: <PrivateRoute><UpdateProduct/></PrivateRoute>,
+                loader: ({params}) => fetch(`https://automotive-brand-server.vercel.app/brandCart/${params.id}`)
             },
             {
                 path: "/bmw",
                 element: <BMWCart/>,
-                loader: () => fetch('http://localhost:5001/toyota')
+                loader: () => fetch('https://automotive-brand-server.vercel.app/brandCart')
             },
             {
                 path: "/honda",
                 element: <HondaCar/>,
-                loader: () => fetch('http://localhost:5001/toyota')
+                loader: () => fetch('https://automotive-brand-server.vercel.app/brandCart')
             },
             {
                 path: "/mercedes",
                 element: <MercedesCart/>,
-                loader: () => fetch('http://localhost:5001/toyota')
+                loader: () => fetch('https://automotive-brand-server.vercel.app/brandCart')
             },
             {
                 path: "/tesla",
                 element: <TeslaCart/>,
-                loader: () => fetch('http://localhost:5001/toyota')
+                loader: () => fetch('https://automotive-brand-server.vercel.app/brandCart')
             },
             {
                 path: "/ford",
                 element: <FordCart/>,
-                loader: () => fetch('http://localhost:5001/toyota')
+                loader: () => fetch('https://automotive-brand-server.vercel.app/brandCart')
             }
         ]
     }

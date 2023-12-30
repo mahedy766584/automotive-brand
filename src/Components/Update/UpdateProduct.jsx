@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
 
@@ -16,35 +17,42 @@ const UpdateProduct = () => {
     const [description, descriptionChange] = useState(updateLoaded.description)
 
 
-    const handleUpdate = (e) =>{
+    const handleUpdate = (e) => {
         e.preventDefault();
         const productUpdate = { photo, name, brandName, price, type, rating, description }
         console.log(productUpdate)
 
-        fetch(`http://localhost:5001/addToCart/${updateLoaded._id}`,{
+        fetch(`https://automotive-brand-server.vercel.app/brandCart/${updateLoaded._id}`, {
             method: "PUT",
             headers: {
-                "content-type" : "application/json",
+                "content-type": "application/json",
             },
             body: JSON.stringify(productUpdate)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged > 0) {
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "Your product successfully updated!",
+                        icon: "success"
+                    });
+                }
+            })
     }
 
     return (
         <div>
             <div>
-                <Navbar/>
+                <Navbar />
             </div>
             <div className="mt-14 max-w-xl mx-auto">
                 <div className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
                     <div
                         className="relative grid mx-4 mb-4 -mt-6 overflow-hidden text-white shadow-lg h-28 place-items-center rounded-xl bg-gradient-to-tr from-[#000C21] to-[#000C21] bg-clip-border shadow-gray-900/20">
                         <h3 className="block font-goldman text-3xl antialiased font-semibold leading-snug tracking-normal text-white">
-                            Add Your Product
+                            Update Your Product
                         </h3>
                     </div>
                     <form onSubmit={handleUpdate}>
@@ -151,7 +159,7 @@ const UpdateProduct = () => {
                         <div className="p-6 pt-0">
                             <input
                                 className="block w-full select-none rounded-lg bg-gradient-to-tr from-[#000C21] to-[#000C21] py-3 px-6 text-center align-middle font-poppins text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                                type="submit" value="Add Product" />
+                                type="submit" value="Update" />
                         </div>
                     </form>
                 </div>

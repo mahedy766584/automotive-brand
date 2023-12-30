@@ -7,7 +7,7 @@ import Navbar from "../Navbar/Navbar";
 const ToyotaDetails = () => {
 
     const toyotaLoaded = useLoaderData();
-    
+    console.log(toyotaLoaded)
 
     const [star, setStar] = useState();
 
@@ -19,7 +19,7 @@ const ToyotaDetails = () => {
 
     const handleAddToCart = () => {
 
-        fetch('http://localhost:5001/addToCart', {
+        fetch('https://automotive-brand-server.vercel.app/myCart', {
             method: "POST",
             headers: {
                 "content-type" : "application/json"

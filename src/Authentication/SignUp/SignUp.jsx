@@ -110,7 +110,7 @@ const SignUp = () => {
                     <form onSubmit={handleRegister}>
                         <div>
                             <div className="flex flex-col gap-4 p-6">
-                                <div className="flex w-full items-center gap-4">
+                                <div className="flex flex-col lg:flex-row w-full items-center gap-4">
                                     <div className="space-y-4 w-full">
                                         <div className="relative h-11 w-full">
                                             <input
